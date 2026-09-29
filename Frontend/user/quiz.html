@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কুইজ - কুইজ পোর্টাল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+
+<body class="quiz-body">
+
+    <!-- লোডিং -->
+    <div id="loadingBox" class="fullscreen-loading">
+        <div class="spinner-lg"></div>
+        <p>কুইজ লোড হচ্ছে...</p>
+    </div>
+
+
+    <!-- কুইজ কনটেইনার -->
+    <div id="quizContainer" class="quiz-container" style="display:none;">
+
+        <!-- হেডার -->
+        <header class="quiz-header">
+
+            <div class="header-left">
+                <h1 id="quizTitle">কুইজ</h1>
+                <span id="categoryBadge" class="category-badge">বিভাগ</span>
+            </div>
+
+            <div class="header-right">
+                <div class="timer-box" id="timerBox">
+                    <span class="timer-icon">⏱️</span>
+                    <span class="timer-value" id="timerValue">--:--</span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- প্রগ্রেস বার -->
+        <div class="progress-section">
+            <div class="progress-info">
+                <span id="progressText">প্রশ্ন ১ / ১০</span>
+                <span id="answeredText">উত্তর দিয়েছেন ০টি</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+
+        <!-- মূল কনটেন্ট -->
+        <main class="quiz-main">
+
+            <!-- প্রশ্ন কার্ড -->
+            <div class="question-card">
+
+                <div class="question-number" id="questionNumber">
+                    প্রশ্ন ১
+                </div>
+
+                <h2 class="question-text" id="questionText">
+                    প্রশ্ন লোড হচ্ছে...
+                </h2>
+
+                <div class="options" id="optionsContainer">
+                    <!-- JS দিয়ে অপশন আসবে -->
+                </div>
+
+            </div>
+
+
+            <!-- নেভিগেশন -->
+            <div class="nav-bar">
+
+                <button class="nav-btn prev-btn" id="prevBtn">
+                    ← পূর্ববর্তী
+                </button>
+
+                <button class="nav-btn next-btn" id="nextBtn">
+                    পরবর্তী →
+                </button>
+
+            </div>
+
+
+            <!-- সাবমিট -->
+            <div class="submit-section">
+                <button class="submit-btn" id="submitBtn">
+                    কুইজ জমা দিন
+                </button>
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- Confirm Submit Modal -->
+    <div id="confirmModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+
+            <div class="modal-icon">📤</div>
+
+            <h3>কুইজ জমা দিতে চান?</h3>
+
+            <p id="confirmMessage">
+                আপনি সব প্রশ্নের উত্তর দিয়েছেন।
+            </p>
+
+            <div class="modal-actions">
+                <button class="modal-cancel" id="modalCancel">
+                    ফিরে যান
+                </button>
+                <button class="modal-confirm" id="modalConfirm">
+                    জমা দিন
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Timeout Modal -->
+    <div id="timeoutModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+
+            <div class="modal-icon">⏰</div>
+
+            <h3>সময় শেষ!</h3>
+
+            <p>
+                নির্ধারিত সময় পার হয়ে গেছে। স্বয়ংক্রিয়ভাবে কুইজ জমা দেওয়া হচ্ছে...
+            </p>
+
+        </div>
+    </div>
+
+
+    <script src="js/quiz.js"></script>
+
+</body>
+</html>

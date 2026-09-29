@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফলাফল - কুইজ পোর্টাল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/result.css">
+</head>
+
+<body>
+
+    <!-- নেভিগেশন বার -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- মূল কনটেন্ট -->
+    <main class="result-page">
+
+        <div class="container">
+
+            <!-- লোডিং -->
+            <div id="loadingBox" class="loading-box">
+                <div class="spinner"></div>
+                <p>ফলাফল লোড হচ্ছে...</p>
+            </div>
+
+
+            <!-- ফলাফল কার্ড -->
+            <div id="resultCard" class="result-card" style="display:none;">
+
+                <!-- হেডার -->
+                <div class="result-header" id="resultHeader">
+                    <div class="result-icon" id="resultIcon">🎉</div>
+                    <h1 id="resultTitle">কুইজ সম্পন্ন!</h1>
+                    <p class="result-subtitle" id="resultSubtitle">
+                        আপনার পারফরম্যান্স দেখুন।
+                    </p>
+                </div>
+
+
+                <!-- স্কোর সার্কেল -->
+                <div class="score-container">
+
+                    <div class="score-circle" id="scoreCircle">
+                        <div class="score-circle-inner">
+                            <span class="score-percent" id="scorePercent">০%</span>
+                            <span class="score-label">স্কোর</span>
+                        </div>
+                    </div>
+
+                    <div class="score-details">
+                        <div class="score-item correct">
+                            <span class="score-icon">✔️</span>
+                            <span class="score-text">সঠিক: <strong id="correctCount">০</strong></span>
+                        </div>
+                        <div class="score-item incorrect">
+                            <span class="score-icon">✖️</span>
+                            <span class="score-text">ভুল: <strong id="wrongCount">০</strong></span>
+                        </div>
+                        <div class="score-item skipped">
+                            <span class="score-icon">⏭️</span>
+                            <span class="score-text">বাদ: <strong id="skippedCount">০</strong></span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- কুইজের তথ্য -->
+                <div class="quiz-info">
+                    <h2 id="quizName">কুইজের নাম</h2>
+                    <div class="info-grid">
+
+                        <div class="info-item">
+                            <span class="info-value" id="totalQ">০</span>
+                            <span class="info-label">মোট প্রশ্ন</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-value" id="timeTaken">০ মিনিট</span>
+                            <span class="info-label">সময় লেগেছে</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-value" id="attemptDate">—</span>
+                            <span class="info-label">তারিখ</span>
+                        </div>
+
+                        <div class="info-item">
+                            <span class="info-value" id="resultStatus">
+                                <span class="status-badge" id="statusBadge">—</span>
+                            </span>
+                            <span class="info-label">ফলাফল</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- পারফরম্যান্স বার -->
+                <div class="performance-section">
+
+                    <h3>প্রশ্নভিত্তিক পারফরম্যান্স</h3>
+
+                    <div class="perf-bar">
+                        <div class="perf-label">
+                            <span>সঠিক</span>
+                            <span id="correctPerfLabel">০%</span>
+                        </div>
+                        <div class="perf-track">
+                            <div class="perf-fill correct-fill" id="correctBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="perf-bar">
+                        <div class="perf-label">
+                            <span>ভুল</span>
+                            <span id="wrongPerfLabel">০%</span>
+                        </div>
+                        <div class="perf-track">
+                            <div class="perf-fill wrong-fill" id="wrongBar"></div>
+                        </div>
+                    </div>
+
+                    <div class="perf-bar">
+                        <div class="perf-label">
+                            <span>বাদ</span>
+                            <span id="skippedPerfLabel">০%</span>
+                        </div>
+                        <div class="perf-track">
+                            <div class="perf-fill skipped-fill" id="skippedBar"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- বাটন -->
+                <div class="result-actions">
+                    <a href="quizzes.html" class="btn btn-primary">
+                        আবার কুইজ দিন
+                    </a>
+                    <a href="dashboard.html" class="btn btn-secondary">
+                        ড্যাশবোর্ডে যান
+                    </a>
+                    <a href="history.html" class="btn btn-outline">
+                        ইতিহাস দেখুন
+                    </a>
+                </div>
+
+            </div>
+
+
+            <!-- কোনো ফলাফল নেই -->
+            <div id="noResultBox" class="no-result-box" style="display:none;">
+                <div class="no-result-icon">📊</div>
+                <h2>কোনো ফলাফল নেই</h2>
+                <p>আপনি এখনো কোনো কুইজ দেননি।</p>
+                <a href="quizzes.html" class="btn btn-primary">কুইজ শুরু করুন</a>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/result.js"></script>
+
+</body>
+</html>

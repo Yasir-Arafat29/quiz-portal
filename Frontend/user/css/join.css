@@ -1,0 +1,176 @@
+/* ============================================
+   User Join by Code – Specific Styles
+   ============================================ */
+
+.join-page {
+    padding: 3rem 1rem;
+    background: #f1f5f9;
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.join-card {
+    background: #fff;
+    padding: 2.75rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.join-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.join-card h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.5rem 0;
+}
+
+.join-sub {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+
+.message-box {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid;
+    text-align: left;
+}
+
+.message-box.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fca5a5;
+}
+
+.message-box.success {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
+}
+
+
+.form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.3px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 1.1rem;
+    border: 2px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: #f8fafc;
+    color: #0f172a;
+}
+
+.form-group input::placeholder {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    color: #94a3b8;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+
+.join-btn {
+    width: 100%;
+    background: #059669;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
+}
+
+.join-btn:hover {
+    background: #047857;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.35);
+}
+
+.join-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+
+.join-tip {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1rem;
+    background: #eff6ff;
+    border-radius: 8px;
+    border: 1px solid #bfdbfe;
+}
+
+.join-tip p {
+    font-size: 0.85rem;
+    color: #1e40af;
+    margin: 0;
+    line-height: 1.5;
+}
+
+
+@media (max-width: 480px) {
+    .join-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .join-card h1 {
+        font-size: 1.4rem;
+    }
+
+    .join-icon {
+        font-size: 2.75rem;
+    }
+
+    .form-group input {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+}

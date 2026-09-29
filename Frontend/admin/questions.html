@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রশ্ন - অ্যাডমিন প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/questions.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="categories.html">বিভাগ</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="questions.html" class="active">প্রশ্ন</a>
+                <a href="users.html">ব্যবহারকারী</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="questions-page">
+
+        <div class="container">
+
+            <div class="page-header">
+                <div>
+                    <p class="page-label">অ্যাডমিন প্যানেল</p>
+                    <h1>প্রশ্ন</h1>
+                    <p>কুইজের প্রশ্ন তৈরি করুন এবং পরিচালনা করুন।</p>
+                </div>
+
+                <a href="questions-bulk.html" class="add-btn">
+                    + নতুন প্রশ্ন যোগ করুন
+                </a>
+            </div>
+
+
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="filterQuiz">কুইজ অনুযায়ী দেখুন</label>
+                    <select id="filterQuiz">
+                        <option value="">সব কুইজ</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="list-card">
+
+                <div class="list-header">
+                    <h2>সব প্রশ্ন</h2>
+                    <span id="countText">লোড হচ্ছে...</span>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">ক্রম</th>
+                                <th>প্রশ্ন</th>
+                                <th style="width: 180px;">কুইজ</th>
+                                <th style="width: 110px;">সঠিক উত্তর</th>
+                                <th style="width: 160px;">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="questionTableBody"></tbody>
+                    </table>
+
+                    <div id="loadingBox" class="loading-box">
+                        <div class="spinner"></div>
+                        <p>লোড হচ্ছে...</p>
+                    </div>
+
+                    <div id="emptyBox" class="empty-box" style="display:none;">
+                        <div class="empty-icon">📭</div>
+                        <p>এখনো কোনো প্রশ্ন যোগ করা হয়নি।</p>
+                        <a href="questions-bulk.html" class="add-btn-small">
+                            প্রথম প্রশ্ন যোগ করুন
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ============================
+         EDIT QUESTION MODAL
+    ============================= -->
+    <div id="editModal" class="modal-overlay" style="display:none;">
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <h3>প্রশ্ন সম্পাদনা করুন</h3>
+                <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+            </div>
+
+            <form id="editForm">
+
+                <input type="hidden" id="editQuestionId">
+
+                <div class="form-group">
+                    <label>প্রশ্ন <span class="required">*</span></label>
+                    <textarea id="editQuestionText" rows="3" placeholder="প্রশ্ন লিখুন..." required></textarea>
+                </div>
+
+                <div class="options-grid">
+                    <div class="form-group">
+                        <label>Option A <span class="required">*</span></label>
+                        <input type="text" id="editOptionA" placeholder="প্রথম অপশন" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Option B <span class="required">*</span></label>
+                        <input type="text" id="editOptionB" placeholder="দ্বিতীয় অপশন" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Option C <span class="required">*</span></label>
+                        <input type="text" id="editOptionC" placeholder="তৃতীয় অপশন" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Option D <span class="required">*</span></label>
+                        <input type="text" id="editOptionD" placeholder="চতুর্থ অপশন" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>সঠিক উত্তর <span class="required">*</span></label>
+                    <select id="editCorrectAnswer" required>
+                        <option value="">নির্বাচন করুন</option>
+                        <option value="A">Option A</option>
+                        <option value="B">Option B</option>
+                        <option value="C">Option C</option>
+                        <option value="D">Option D</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="modal-cancel" id="modalCancelBtn">
+                        বাতিল
+                    </button>
+                    <button type="submit" class="modal-save" id="modalSaveBtn">
+                        আপডেট করুন
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/questions.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইতিহাস - অ্যাডমিন প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/history.css">
+</head>
+
+<body>
+
+    <!-- নেভিগেশন বার -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="categories.html">বিভাগ</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="questions.html">প্রশ্ন</a>
+                <a href="users.html">ব্যবহারকারী</a>
+                <a href="history.html" class="active">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- মূল কনটেন্ট -->
+    <main class="history-page">
+
+        <div class="container">
+
+            <!-- পেজ হেডার -->
+            <div class="page-header">
+                <div>
+                    <p class="page-label">অ্যাডমিন প্যানেল</p>
+                    <h1>ইতিহাস</h1>
+                    <p>সব ব্যবহারকারীর কুইজ দেওয়ার ফলাফল দেখুন।</p>
+                </div>
+            </div>
+
+
+            <!-- বার্তা -->
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <!-- ফিল্টার -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="filterStatus">ফলাফল অনুযায়ী</label>
+                    <select id="filterStatus">
+                        <option value="">সব</option>
+                        <option value="PASSED">উত্তীর্ণ</option>
+                        <option value="FAILED">অনুত্তীর্ণ</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="searchBox">ইউজার বা কুইজ নাম দিয়ে খুঁজুন</label>
+                    <input type="text" id="searchBox" placeholder="নাম লিখুন...">
+                </div>
+            </div>
+
+
+            <!-- তালিকা -->
+            <div class="list-card">
+
+                <div class="list-header">
+                    <h2>সব ফলাফল</h2>
+                    <span id="countText">লোড হচ্ছে...</span>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">ক্রম</th>
+                                <th>ব্যবহারকারী</th>
+                                <th>কুইজ</th>
+                                <th style="width: 110px;">প্রাপ্ত নম্বর</th>
+                                <th style="width: 100px;">শতকরা</th>
+                                <th style="width: 120px;">ফলাফল</th>
+                                <th style="width: 150px;">তারিখ</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="historyTableBody"></tbody>
+                    </table>
+
+                    <div id="loadingBox" class="loading-box">
+                        <div class="spinner"></div>
+                        <p>লোড হচ্ছে...</p>
+                    </div>
+
+                    <div id="emptyBox" class="empty-box" style="display:none;">
+                        <div class="empty-icon">📊</div>
+                        <p>এখনো কোনো কুইজ দেওয়া হয়নি।</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/history.js"></script>
+
+</body>
+</html>

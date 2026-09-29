@@ -1,0 +1,592 @@
+/* ============================================
+   User Quizzes – Specific Styles
+   ============================================ */
+
+.quizzes-page {
+    padding: 2.5rem 0 3rem;
+    background: #f1f5f9;
+    min-height: calc(100vh - 140px);
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+
+/* পেজ হেডার */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.page-label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+}
+
+.page-header p {
+    color: #64748b;
+    margin: 0;
+}
+
+
+/* Join by Code button */
+.join-by-code-btn {
+    background: #7c3aed;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+    display: inline-block;
+}
+
+.join-by-code-btn:hover {
+    background: #6d28d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+}
+
+
+/* বার্তা */
+.message-box {
+    padding: 0.9rem 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid;
+}
+
+.message-box.success {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #86efac;
+}
+
+.message-box.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fca5a5;
+}
+
+
+/* ফিল্টার */
+.filter-bar {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    background: #fff;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 0.6rem 0.75rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+
+/* কুইজ গ্রিড */
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+
+/* কুইজ কার্ড */
+.quiz-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.quiz-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+    border-color: #a7f3d0;
+}
+
+.quiz-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.quiz-card-header h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+    flex: 1;
+    line-height: 1.4;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    background: #dbeafe;
+    color: #1e40af;
+    white-space: nowrap;
+}
+
+.quiz-description {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0 0 1rem 0;
+    flex: 1;
+}
+
+
+/* ✅ কুইজ মেটা – বড়, স্পষ্ট, গাঢ় */
+.quiz-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 1rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 600;
+    font-family: 'Hind Siliguri', sans-serif;
+    letter-spacing: 0.2px;
+    line-height: 1;
+}
+
+.meta-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.meta-item span:not(.meta-icon) {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+
+.quiz-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.start-btn {
+    background: #059669;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6rem 1.35rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-block;
+}
+
+.start-btn:hover {
+    background: #047857;
+    transform: translateY(-1px);
+}
+
+
+/* লোডিং */
+.loading-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    color: #64748b;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #059669;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 0.85rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* Empty */
+.empty-box {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: #64748b;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.empty-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.6;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .join-by-code-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-card-header {
+        flex-wrap: wrap;
+    }
+
+    .quiz-card-footer {
+        justify-content: stretch;
+    }
+
+    .start-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .meta-item {
+        font-size: 0.95rem;
+    }
+}
+/* ============================================
+   Share Icon Button + Share Modal
+   ============================================ */
+
+/* Share icon on card */
+.share-icon-btn {
+    background: #ede9fe;
+    color: #5b21b6;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.share-icon-btn:hover {
+    background: #ddd6fe;
+    transform: scale(1.08);
+}
+
+.quiz-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+
+/* ============================
+   Share Modal
+   ============================ */
+
+.share-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.share-modal-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 480px;
+    width: 100%;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.4);
+    animation: scaleIn 0.25s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.share-modal-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+.share-modal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.share-modal-header h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.25rem 0;
+}
+
+.share-modal-header p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.share-section {
+    margin-bottom: 1.25rem;
+}
+
+.share-section label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.share-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.6rem 0.75rem;
+    transition: border-color 0.2s;
+}
+
+.share-input-group:focus-within {
+    border-color: #7c3aed;
+}
+
+.share-value {
+    flex: 1;
+    font-size: 1.05rem;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1.5px;
+    color: #0f172a;
+}
+
+.share-link {
+    flex: 1;
+    font-size: 0.8rem;
+    color: #334155;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: 'Courier New', monospace;
+}
+
+.copy-btn {
+    background: #7c3aed;
+    color: #fff;
+    border: none;
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: #6d28d9;
+}
+
+.share-divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.share-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+.share-divider span {
+    position: relative;
+    background: #fff;
+    padding: 0 1rem;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.share-social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: transform 0.1s, filter 0.2s;
+    border: 1.5px solid #e2e8f0;
+    color: #1e293b;
+    background: #fff;
+}
+
+.social-btn:hover {
+    transform: translateY(-1px);
+}
+
+.social-btn.whatsapp {
+    background: #dcfce7;
+    border-color: #86efac;
+    color: #166534;
+}
+
+.social-btn.email {
+    background: #dbeafe;
+    border-color: #93c5fd;
+    color: #1e40af;
+}
+
+.close-modal-btn {
+    width: 100%;
+    background: #e2e8f0;
+    color: #334155;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.close-modal-btn:hover {
+    background: #cbd5e1;
+}
+
+
+/* Responsive */
+@media (max-width: 480px) {
+    .share-modal-box {
+        padding: 1.5rem;
+    }
+
+    .share-social {
+        grid-template-columns: 1fr;
+    }
+}

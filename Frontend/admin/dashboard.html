@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ড্যাশবোর্ড - অ্যাডমিন প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html" class="active">ড্যাশবোর্ড</a>
+                <a href="categories.html">বিভাগ</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="questions.html">প্রশ্ন</a>
+                <a href="users.html">ব্যবহারকারী</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="dashboard-page">
+
+        <div class="container">
+
+            <div class="welcome-card">
+                <div>
+                    <p class="welcome-label">অ্যাডমিন প্যানেল</p>
+                    <h1 id="welcomeText">স্বাগতম</h1>
+                    <p class="welcome-sub">
+                        কুইজ পোর্টালের সার্বিক অবস্থা এক নজরে দেখুন।
+                    </p>
+                </div>
+                <div class="welcome-icon">📊</div>
+            </div>
+
+
+            <div class="stats-grid">
+
+                <a href="categories.html" class="stat-card">
+                    <div class="stat-icon bg-blue">📚</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="catCount">--</span>
+                        <span class="stat-label">মোট বিভাগ</span>
+                    </div>
+                </a>
+
+                <a href="quizzes.html" class="stat-card">
+                    <div class="stat-icon bg-green">📝</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="quizCount">--</span>
+                        <span class="stat-label">মোট কুইজ</span>
+                    </div>
+                </a>
+
+                <a href="questions.html" class="stat-card">
+                    <div class="stat-icon bg-purple">❓</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="quesCount">--</span>
+                        <span class="stat-label">মোট প্রশ্ন</span>
+                    </div>
+                </a>
+
+                <a href="users.html" class="stat-card">
+                    <div class="stat-icon bg-orange">👥</div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="userCount">--</span>
+                        <span class="stat-label">মোট ব্যবহারকারী</span>
+                    </div>
+                </a>
+
+            </div>
+
+
+            <div class="section-block">
+                <h2 class="section-title">দ্রুত কাজ</h2>
+
+                <div class="quick-actions">
+
+                    <a href="categories.html" class="quick-btn">
+                        <span class="quick-icon">➕</span>
+                        <span>নতুন বিভাগ</span>
+                    </a>
+
+                    <a href="quizzes.html" class="quick-btn">
+                        <span class="quick-icon">📝</span>
+                        <span>নতুন কুইজ</span>
+                    </a>
+
+                    <a href="questions.html" class="quick-btn">
+                        <span class="quick-icon">❓</span>
+                        <span>নতুন প্রশ্ন</span>
+                    </a>
+
+                    <a href="history.html" class="quick-btn">
+                        <span class="quick-icon">📊</span>
+                        <span>সব ফলাফল</span>
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

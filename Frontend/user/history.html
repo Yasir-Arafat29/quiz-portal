@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার ইতিহাস - কুইজ পোর্টাল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/history.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="history.html" class="active">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="history-page">
+
+        <div class="container">
+
+            <div class="page-header">
+                <div>
+                    <p class="page-label">ইউজার প্যানেল</p>
+                    <h1>আমার ইতিহাস</h1>
+                    <p>আপনার আগের সব কুইজের ফলাফল দেখুন।</p>
+                </div>
+            </div>
+
+
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <!-- সারাংশ কার্ড -->
+            <div class="summary-grid">
+
+                <div class="summary-card">
+                    <div class="summary-icon bg-blue">📝</div>
+                    <div class="summary-info">
+                        <span class="summary-value" id="totalAttempts">০</span>
+                        <span class="summary-label">মোট কুইজ দিয়েছেন</span>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon bg-green">🏆</div>
+                    <div class="summary-info">
+                        <span class="summary-value" id="totalPassed">০</span>
+                        <span class="summary-label">উত্তীর্ণ</span>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon bg-orange">📊</div>
+                    <div class="summary-info">
+                        <span class="summary-value" id="avgScore">০%</span>
+                        <span class="summary-label">গড় স্কোর</span>
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="summary-icon bg-purple">⭐</div>
+                    <div class="summary-info">
+                        <span class="summary-value" id="bestScore">০%</span>
+                        <span class="summary-label">সেরা স্কোর</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- ফিল্টার -->
+            <div class="filter-bar">
+
+                <div class="filter-group">
+                    <label for="filterStatus">ফলাফল</label>
+                    <select id="filterStatus">
+                        <option value="">সব</option>
+                        <option value="PASSED">উত্তীর্ণ</option>
+                        <option value="FAILED">অনুত্তীর্ণ</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="searchBox">কুইজের নাম</label>
+                    <input type="text" id="searchBox" placeholder="নাম লিখুন...">
+                </div>
+
+            </div>
+
+
+            <!-- তালিকা -->
+            <div class="list-card">
+
+                <div class="list-header">
+                    <h2>সব ফলাফল</h2>
+                    <span id="countText">লোড হচ্ছে...</span>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">ক্রম</th>
+                                <th>কুইজ</th>
+                                <th style="width: 110px;">স্কোর</th>
+                                <th style="width: 100px;">শতকরা</th>
+                                <th style="width: 110px;">ফলাফল</th>
+                                <th style="width: 170px;">তারিখ</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="historyTableBody"></tbody>
+                    </table>
+
+                    <div id="loadingBox" class="loading-box">
+                        <div class="spinner"></div>
+                        <p>লোড হচ্ছে...</p>
+                    </div>
+
+                    <div id="emptyBox" class="empty-box" style="display:none;">
+                        <div class="empty-icon">📊</div>
+                        <p>আপনি এখনো কোনো কুইজ দেননি।</p>
+                        <a href="quizzes.html" class="start-btn-small">প্রথম কুইজ দিন</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/history.js"></script>
+
+</body>
+</html>

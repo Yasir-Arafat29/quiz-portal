@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk প্রশ্ন - অ্যাডমিন প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/questions-bulk.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="categories.html">বিভাগ</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="questions.html">প্রশ্ন</a>
+                <a href="users.html">ব্যবহারকারী</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="bulk-page">
+
+        <div class="container">
+
+            <div class="page-header">
+                <div>
+                    <p class="page-label">অ্যাডমিন প্যানেল</p>
+                    <h1>প্রশ্ন পরিচালনা করুন</h1>
+                    <p>এই কুইজের সব প্রশ্ন একসাথে সম্পাদনা করুন অথবা নতুন যোগ করুন।</p>
+                </div>
+
+                <a href="questions.html" class="back-btn">
+                    ← ফিরে যান
+                </a>
+            </div>
+
+
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <div class="quiz-select-card">
+                <label for="bulkQuiz">কোন কুইজের প্রশ্ন সম্পাদনা করবেন?</label>
+                <select id="bulkQuiz" required>
+                    <option value="">কুইজ নির্বাচন করুন</option>
+                </select>
+            </div>
+
+
+            <!-- Counter display -->
+            <div id="counterBar" class="counter-bar" style="display:none;">
+                <div class="counter-item">
+                    <span class="counter-badge badge-existing" id="existingBadge">০টি পুরোনো</span>
+                </div>
+                <div class="counter-item">
+                    <span class="counter-badge badge-new" id="newBadge">০টি নতুন</span>
+                </div>
+            </div>
+
+
+            <div id="questionsContainer" class="questions-container"></div>
+
+
+            <div class="add-more-section">
+                <button type="button" class="add-more-btn" id="addQuestionBtn">
+                    + আরেকটি নতুন প্রশ্ন যোগ করুন
+                </button>
+            </div>
+
+
+            <div class="save-all-section">
+                <button type="button" class="save-all-btn" id="saveAllBtn">
+                    💾 সব পরিবর্তন সংরক্ষণ করুন
+                </button>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/questions-bulk.js"></script>
+
+</body>
+</html>

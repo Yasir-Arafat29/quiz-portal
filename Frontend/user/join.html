@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কোড দিয়ে কুইজে যোগ দিন - কুইজ পোর্টাল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/join.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="join-page">
+
+        <div class="container">
+
+            <div class="join-card">
+
+                <div class="join-icon">🎯</div>
+
+                <h1>কুইজে যোগ দিন</h1>
+
+                <p class="join-sub">
+                    আপনার শিক্ষক বা বন্ধুর পাঠানো কোডটি নিচে লিখুন।
+                </p>
+
+                <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+                <form id="joinForm">
+
+                    <div class="form-group">
+                        <label for="codeInput">কুইজ কোড</label>
+                        <input
+                            type="text"
+                            id="codeInput"
+                            placeholder="যেমন: JAVA-4X7K"
+                            autocomplete="off"
+                            maxlength="12"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="join-btn" id="joinBtn">
+                        কুইজ শুরু করুন →
+                    </button>
+
+                </form>
+
+
+                <div class="join-tip">
+                    <p>💡 <strong>টিপস:</strong> কোড সাধারণত বড় হাতের অক্ষরে হয় (JAVA-4X7K)</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/join.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কুইজ - অ্যাডমিন প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/quizzes.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="categories.html">বিভাগ</a>
+                <a href="quizzes.html" class="active">কুইজ</a>
+                <a href="questions.html">প্রশ্ন</a>
+                <a href="users.html">ব্যবহারকারী</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="quizzes-page">
+
+        <div class="container">
+
+            <div class="page-header">
+                <div>
+                    <p class="page-label">অ্যাডমিন প্যানেল</p>
+                    <h1>কুইজ</h1>
+                    <p>কুইজ তৈরি করুন এবং পরিচালনা করুন।</p>
+                </div>
+
+                <button class="add-btn" id="openFormBtn">
+                    + নতুন কুইজ
+                </button>
+            </div>
+
+
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <div class="form-card" id="formCard" style="display:none;">
+                <h2 id="formTitle">নতুন কুইজ যোগ করুন</h2>
+
+                <form id="quizForm">
+
+                    <input type="hidden" id="editingId" value="">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quizTitle">কুইজের শিরোনাম <span class="required">*</span></label>
+                            <input type="text" id="quizTitle" placeholder="যেমন: জাভা বেসিক কুইজ" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quizCategory">বিভাগ <span class="required">*</span></label>
+                            <select id="quizCategory" required>
+                                <option value="">বিভাগ নির্বাচন করুন</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quizDescription">বিবরণ</label>
+                        <textarea id="quizDescription" rows="3" placeholder="সংক্ষিপ্ত বিবরণ লিখুন"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quizTime">নির্ধারিত সময় (মিনিট) <span class="required">*</span></label>
+                            <input type="number" id="quizTime" min="1" placeholder="যেমন: ২০" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quizQuestions">মোট প্রশ্ন <span class="required">*</span></label>
+                            <input type="number" id="quizQuestions" min="1" placeholder="যেমন: ১০" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quizStatus">অবস্থা <span class="required">*</span></label>
+                            <select id="quizStatus" required>
+                                <option value="ACTIVE">Active</option>
+                                <option value="INACTIVE">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" id="cancelBtn">বাতিল</button>
+                        <button type="submit" class="save-btn" id="saveBtn">সংরক্ষণ করুন</button>
+                    </div>
+
+                </form>
+            </div>
+
+
+            <div class="list-card">
+
+                <div class="list-header">
+                    <h2>সব কুইজ</h2>
+                    <span id="countText">লোড হচ্ছে...</span>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">ক্রম</th>
+                                <th>শিরোনাম</th>
+                                <th>বিভাগ</th>
+                                <th style="width: 80px;">সময়</th>
+                                <th style="width: 80px;">প্রশ্ন</th>
+                                <th style="width: 90px;">অবস্থা</th>
+                                <th style="width: 120px;">কোড</th>
+                                <th style="width: 220px;">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="quizTableBody"></tbody>
+                    </table>
+
+                    <div id="loadingBox" class="loading-box">
+                        <div class="spinner"></div>
+                        <p>লোড হচ্ছে...</p>
+                    </div>
+
+                    <div id="emptyBox" class="empty-box" style="display:none;">
+                        <div class="empty-icon">📭</div>
+                        <p>এখনো কোনো কুইজ যোগ করা হয়নি।</p>
+                        <button class="add-btn-small" onclick="document.getElementById('openFormBtn').click()">
+                            প্রথম কুইজ যোগ করুন
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ============================
+         SHARE MODAL
+    ============================= -->
+    <div id="shareModal" class="share-modal-overlay" style="display:none;">
+        <div class="share-modal-box">
+
+            <div class="share-modal-header">
+                <div class="share-modal-icon">🔗</div>
+                <h3>কুইজ শেয়ার করুন</h3>
+                <p>নিচের কোড বা লিংক কপি করে পাঠিয়ে দিন</p>
+            </div>
+
+            <div class="share-section">
+                <label>কুইজ কোড</label>
+                <div class="share-input-group">
+                    <span class="share-value" id="shareCodeText">—</span>
+                    <button class="copy-btn" id="copyCodeBtn">📋 কপি</button>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <label>শেয়ারযোগ্য লিংক</label>
+                <div class="share-input-group">
+                    <span class="share-link" id="shareLinkText">—</span>
+                    <button class="copy-btn" id="copyLinkBtn">📋 কপি</button>
+                </div>
+            </div>
+
+            <div class="share-divider">
+                <span>অথবা শেয়ার করুন</span>
+            </div>
+
+            <div class="share-social">
+                <a href="#" id="shareWhatsapp" class="social-btn whatsapp" target="_blank">
+                    <span>💬</span> WhatsApp
+                </a>
+                <a href="#" id="shareEmail" class="social-btn email">
+                    <span>📧</span> Email
+                </a>
+            </div>
+
+            <button class="close-modal-btn" id="closeModalBtn">
+                বন্ধ করুন
+            </button>
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/quizzes.js"></script>
+
+</body>
+</html>

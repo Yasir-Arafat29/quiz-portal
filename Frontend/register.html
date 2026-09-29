@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নিবন্ধন - কুইজ পোর্টাল</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">কুইজ পোর্টাল</a>
+            <nav>
+                <a href="index.html">হোম</a>
+                <a href="login.html">প্রবেশ</a>
+                <a href="register.html">নিবন্ধন</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="auth-section">
+        <div class="auth-container">
+
+            <div class="auth-header">
+                <h1>নিবন্ধন করুন</h1>
+                <p>নতুন অ্যাকাউন্ট তৈরি করুন</p>
+            </div>
+
+            <div id="errorBox" class="error-box" style="display:none;"></div>
+            <div id="successBox" class="success-box" style="display:none;"></div>
+
+            <form class="auth-form" id="registerForm">
+
+                <div class="form-group">
+                    <label for="name">আপনার নাম</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="পূর্ণ নাম লিখুন" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">ইমেইল</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="ইমেইল লিখুন" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">পাসওয়ার্ড</label>
+                    <input type="password" id="password" name="password"
+                           placeholder="পাসওয়ার্ড দিন (কমপক্ষে ৬ অক্ষর)" required minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">পাসওয়ার্ড নিশ্চিত করুন</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                           placeholder="আবার পাসওয়ার্ড লিখুন" required minlength="6">
+                </div>
+
+                <button type="submit" class="auth-btn" id="registerBtn">
+                    নিবন্ধন করুন
+                </button>
+
+            </form>
+
+            <div class="auth-footer">
+                <p>
+                    ইতিমধ্যে অ্যাকাউন্ট আছে?
+                    <a href="login.html">প্রবেশ করুন</a>
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <script>
+        const API_BASE = "http://localhost:8080";
+        const registerForm = document.getElementById("registerForm");
+        const errorBox = document.getElementById("errorBox");
+        const successBox = document.getElementById("successBox");
+        const registerBtn = document.getElementById("registerBtn");
+
+        registerForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            errorBox.style.display = "none";
+            successBox.style.display = "none";
+            registerBtn.textContent = "অপেক্ষা করুন...";
+            registerBtn.disabled = true;
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (!name || !email || !password || !confirmPassword) {
+                showError("সব ঘর পূরণ করুন");
+                resetBtn();
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                showError("দুইবার লেখা পাসওয়ার্ড মিলছে না");
+                resetBtn();
+                return;
+            }
+
+            if (password.length < 6) {
+                showError("পাসওয়ার্ড কমপক্ষে ৬ অক্ষরের হতে হবে");
+                resetBtn();
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE}/api/auth/register`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, password })
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    showSuccess("নিবন্ধন সফল! প্রবেশ পৃষ্ঠায় নিয়ে যাওয়া হচ্ছে...");
+                    setTimeout(() => {
+                        window.location.href = "login.html";
+                    }, 1800);
+                } else {
+                    showError(data.message || "নিবন্ধন ব্যর্থ হয়েছে");
+                    resetBtn();
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                showError("সার্ভারে সংযোগ করা যাচ্ছে না। আবার চেষ্টা করুন।");
+                resetBtn();
+            }
+        });
+
+        function showError(msg) {
+            errorBox.textContent = msg;
+            errorBox.style.display = "block";
+        }
+
+        function showSuccess(msg) {
+            successBox.textContent = msg;
+            successBox.style.display = "block";
+        }
+
+        function resetBtn() {
+            registerBtn.textContent = "নিবন্ধন করুন";
+            registerBtn.disabled = false;
+        }
+    </script>
+
+</body>
+</html>

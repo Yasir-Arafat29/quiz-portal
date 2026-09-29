@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ব্যবহারকারী - অ্যাডমিন প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/users.css">
+</head>
+
+<body>
+
+    <!-- নেভিগেশন বার -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="categories.html">বিভাগ</a>
+                <a href="quizzes.html">কুইজ</a>
+                <a href="questions.html">প্রশ্ন</a>
+                <a href="users.html" class="active">ব্যবহারকারী</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- মূল কনটেন্ট -->
+    <main class="users-page">
+
+        <div class="container">
+
+            <!-- পেজ হেডার -->
+            <div class="page-header">
+                <div>
+                    <p class="page-label">অ্যাডমিন প্যানেল</p>
+                    <h1>ব্যবহারকারী</h1>
+                    <p>নিবন্ধিত সব ব্যবহারকারীর তালিকা দেখুন।</p>
+                </div>
+            </div>
+
+
+            <!-- বার্তা -->
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <!-- ফিল্টার -->
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="filterRole">রোল অনুযায়ী</label>
+                    <select id="filterRole">
+                        <option value="">সব ব্যবহারকারী</option>
+                        <option value="ADMIN">অ্যাডমিন</option>
+                        <option value="USER">সাধারণ ব্যবহারকারী</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="searchBox">নাম / ইমেইল দিয়ে খুঁজুন</label>
+                    <input type="text" id="searchBox" placeholder="নাম বা ইমেইল লিখুন...">
+                </div>
+            </div>
+
+
+            <!-- তালিকা -->
+            <div class="list-card">
+
+                <div class="list-header">
+                    <h2>সব ব্যবহারকারী</h2>
+                    <span id="countText">লোড হচ্ছে...</span>
+                </div>
+
+                <div class="table-wrapper">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 60px;">ক্রম</th>
+                                <th>নাম</th>
+                                <th>ইমেইল</th>
+                                <th style="width: 140px;">রোল</th>
+                                <th style="width: 150px;">যোগদানের তারিখ</th>
+                                <th style="width: 100px;">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="userTableBody"></tbody>
+                    </table>
+
+                    <div id="loadingBox" class="loading-box">
+                        <div class="spinner"></div>
+                        <p>লোড হচ্ছে...</p>
+                    </div>
+
+                    <div id="emptyBox" class="empty-box" style="display:none;">
+                        <div class="empty-icon">👥</div>
+                        <p>কোনো ব্যবহারকারী নেই।</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ফুটার -->
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/users.js"></script>
+
+</body>
+</html>

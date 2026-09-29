@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কুইজ - ইউজার প্যানেল</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/quizzes.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="dashboard.html" class="logo">কুইজ পোর্টাল</a>
+
+            <nav>
+                <a href="dashboard.html">ড্যাশবোর্ড</a>
+                <a href="quizzes.html" class="active">কুইজ</a>
+                <a href="history.html">ইতিহাস</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="quizzes-page">
+
+        <div class="container">
+
+            <div class="page-header">
+                <div>
+                    <p class="page-label">ইউজার প্যানেল</p>
+                    <h1>কুইজ শুরু করুন</h1>
+                    <p>নিচের তালিকা থেকে পছন্দের কুইজ বেছে নিন অথবা কোড দিয়ে সরাসরি যোগ দিন।</p>
+                </div>
+
+                <a href="join.html" class="join-by-code-btn">
+                    🎯 কোড দিয়ে যোগ দিন
+                </a>
+            </div>
+
+
+            <div id="messageBox" class="message-box" style="display:none;"></div>
+
+
+            <div class="filter-bar">
+
+                <div class="filter-group">
+                    <label for="filterCategory">বিভাগ</label>
+                    <select id="filterCategory">
+                        <option value="">সব বিভাগ</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="searchBox">কুইজের নাম দিয়ে খুঁজুন</label>
+                    <input type="text" id="searchBox" placeholder="নাম লিখুন...">
+                </div>
+
+            </div>
+
+
+            <div id="quizGrid" class="quiz-grid"></div>
+
+            <div id="loadingBox" class="loading-box">
+                <div class="spinner"></div>
+                <p>কুইজ লোড হচ্ছে...</p>
+            </div>
+
+            <div id="emptyBox" class="empty-box" style="display:none;">
+                <div class="empty-icon">📭</div>
+                <p>এই মুহূর্তে কোনো কুইজ নেই।</p>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ============================
+         SHARE MODAL
+    ============================= -->
+    <div id="shareModal" class="share-modal-overlay" style="display:none;">
+        <div class="share-modal-box">
+
+            <div class="share-modal-header">
+                <div class="share-modal-icon">🔗</div>
+                <h3>কুইজ শেয়ার করুন</h3>
+                <p>নিচের কোড বা লিংক বন্ধুদের পাঠিয়ে দিন</p>
+            </div>
+
+            <div class="share-section">
+                <label>কুইজ কোড</label>
+                <div class="share-input-group">
+                    <span class="share-value" id="shareCodeText">—</span>
+                    <button class="copy-btn" id="copyCodeBtn">📋 কপি</button>
+                </div>
+            </div>
+
+            <div class="share-section">
+                <label>শেয়ারযোগ্য লিংক</label>
+                <div class="share-input-group">
+                    <span class="share-link" id="shareLinkText">—</span>
+                    <button class="copy-btn" id="copyLinkBtn">📋 কপি</button>
+                </div>
+            </div>
+
+            <div class="share-divider">
+                <span>অথবা শেয়ার করুন</span>
+            </div>
+
+            <div class="share-social">
+                <a href="#" id="shareWhatsapp" class="social-btn whatsapp" target="_blank">
+                    <span>💬</span> WhatsApp
+                </a>
+                <a href="#" id="shareEmail" class="social-btn email">
+                    <span>📧</span> Email
+                </a>
+            </div>
+
+            <button class="close-modal-btn" id="closeModalBtn">
+                বন্ধ করুন
+            </button>
+
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© ২০২৬ কুইজ পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+
+    <script src="js/quizzes.js"></script>
+
+</body>
+</html>
